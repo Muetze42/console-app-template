@@ -8,3 +8,4 @@ require $autoloader;
 use NormanHuth\ConsoleApp\App;
 
 new App();
+//new App('My App', '1.0', 'hello:world');
