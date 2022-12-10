@@ -10,16 +10,22 @@ use Illuminate\Console\Application;
 class App
 {
     /**
+     * The Laravel Container Instance
+     *
      * @var Container
      */
     protected Container $container;
 
     /**
+     * The Laravel Dispatcher Instance
+     *
      * @var Dispatcher
      */
     protected Dispatcher $events;
 
     /**
+     * The Laravel Application Instance
+     *
      * @var Application
      */
     protected Application $artisan;
@@ -28,13 +34,17 @@ class App
      * @param int|string|null $version
      * @throws Exception
      */
-    public function __construct(int|string $version = null)
+    public function __construct(string $appName = 'Console App', int|string $version = null, string $defaultCommand = null)
     {
         $this->container = new Container;
         $this->events = new Dispatcher($this->container);
         $this->artisan = new Application($this->container, $this->events, $this->setVersion($version));
 
-        $this->artisan->setName('Lura');
+        if ($defaultCommand) {
+            $this->artisan->setDefaultCommand($defaultCommand);
+        }
+
+        $this->artisan->setName($appName);
 
         $this->resolveCommands('Console'.DIRECTORY_SEPARATOR.'Commands');
 
@@ -42,6 +52,8 @@ class App
     }
 
     /**
+     * Get Version from the composer.json file or set default to 1
+     *
      * @param int|string|null $version
      * @return string
      */
@@ -54,7 +66,7 @@ class App
             $version = data_get($data, 'version', 1);
         }
 
-        return (string) $version;
+        return (string)$version;
     }
 
     /**
