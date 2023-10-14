@@ -3,7 +3,6 @@
 namespace NormanHuth\ConsoleApp\Console\Commands\Example;
 
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Command\Command as SymfonyCommand;
 
 class HelloWorld extends Command
 {
@@ -23,13 +22,9 @@ class HelloWorld extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return int
      */
-    public function handle(): int
+    public function handle(): void
     {
         $this->comment('Hello World');
-
-        return SymfonyCommand::SUCCESS;
     }
 }

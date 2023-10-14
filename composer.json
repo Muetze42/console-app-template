@@ -16,10 +16,24 @@
         "issues": "https://github.com/Muetze42/console-app-template/issues",
         "source": "https://github.com/Muetze42/console-app-template"
     },
+    "keywords": [
+        "cli",
+        "command",
+        "command-line",
+        "console",
+        "php",
+        "illuminate",
+        "laravel",
+        "terminal"
+    ],
     "require": {
         "php": "^8.0",
-        "illuminate/console": "^9.0|^10.0",
-        "illuminate/events": "^9.0|^10.0"
+        "illuminate/collections": "^9.0|^10.0|^11.0",
+        "illuminate/console": "^9.0|^10.0|^11.0",
+        "illuminate/contracts": "^9.0|^10.0|^11.0",
+        "illuminate/events": "^9.0|^10.0|^11.0",
+        "illuminate/macroable": "^9.0|^10.0|^11.0",
+        "illuminate/support": "^9.0|^10.0|^11.0"
     },
     "bin": [
         "bin/app"
