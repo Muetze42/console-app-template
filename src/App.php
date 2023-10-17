@@ -34,10 +34,14 @@ class App
      * @throws \Exception
      */
     public function __construct(
-        string $appName = 'Console App',
+        ?string $appName = null,
         int|string $version = null,
         string $defaultCommand = null
     ) {
+        if (!$appName) {
+            $appName = basename(dirname(__DIR__));
+        }
+
         $this->container = new Container();
         $this->events = new Dispatcher($this->container);
         $this->artisan = new Application($this->container, $this->events, $this->setVersion($version));

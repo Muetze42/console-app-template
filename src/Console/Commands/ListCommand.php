@@ -42,6 +42,7 @@ class ListCommand extends \Illuminate\Console\Command
         $namespaces = $description->getNamespaces();
 
         $this->info('„' . $this->getApplication()->getName() . '“ Commands');
+        $this->line('');
         $this->comment('Available commands:');
 
         $width = $this->getColumnWidth(
