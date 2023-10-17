@@ -2,7 +2,6 @@
 
 namespace NormanHuth\ConsoleApp;
 
-use Illuminate\Container\Container;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Console\Application;
 
